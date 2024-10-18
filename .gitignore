@@ -22,3 +22,19 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/.idea/.gitignore
+/.idea/compiler.xml
+/.idea/dataSources.xml
+/.idea/jarRepositories.xml
+/.idea/misc.xml
+/.idea/vcs.xml
+/target/classes/db-migration/V1__tasks_init.sql
+/target/classes/application.properties
+/target/generated-sources/annotations/com/banquemisr/taskmanagement/mappers/TaskMapperImpl.java
+/target/maven-archiver/pom.properties
+/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+/target/surefire-reports/com.banquemisr.taskmanagement.TaskManagementApplicationTests.txt
+/target/surefire-reports/TEST-com.banquemisr.taskmanagement.TaskManagementApplicationTests.xml
