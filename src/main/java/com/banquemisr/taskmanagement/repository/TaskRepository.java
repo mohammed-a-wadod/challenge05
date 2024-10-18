@@ -22,7 +22,8 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
             "   AND (:status IS NULL OR task.status = :status) \n" +
             "   AND (:priority IS NULL OR task.priority = :priority) \n" +
             "   AND (:fromDueDate IS NULL OR task.dueDate >= :fromDueDate) \n" +
-            "   AND (:toDueDate IS NULL OR task.dueDate <= :toDueDate) \n")
+            "   AND (:toDueDate IS NULL OR task.dueDate <= :toDueDate) " +
+            "ORDER BY task.id \n")
     PageImpl<Task> searchTasks(
             @Param("title") String title,
             @Param("description") String description,

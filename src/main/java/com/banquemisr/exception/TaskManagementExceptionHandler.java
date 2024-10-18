@@ -1,4 +1,4 @@
-package com.banquemisr.taskmanagement.exception;
+package com.banquemisr.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

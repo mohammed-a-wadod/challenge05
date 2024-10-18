@@ -1,6 +1,6 @@
 package com.banquemisr.taskmanagement.services;
 
-import com.banquemisr.taskmanagement.exception.ResourceNotFoundException;
+import com.banquemisr.exception.ResourceNotFoundException;
 import com.banquemisr.taskmanagement.mappers.TaskMapper;
 import com.banquemisr.taskmanagement.models.dtos.PageDTO;
 import com.banquemisr.taskmanagement.models.dtos.TaskDTO;
@@ -17,6 +17,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,8 +33,8 @@ public class TaskService {
 
     public PageDTO searchTasks(TaskSearchDTO dto) {
         Pageable pageable = PageRequest.of(
-                (Objects.nonNull(dto.getPageNumber()) ? dto.getPageNumber() : 0),
-                (Objects.nonNull(dto.getPageSize()) ? dto.getPageSize() : 10)
+                Optional.ofNullable(dto.getPageNumber()).orElse(0),
+                Optional.ofNullable(dto.getPageSize()).orElse(10)
         );
         PageImpl<Task> data = taskRepository.searchTasks(dto.getTitle(),
                 dto.getDescription(),
@@ -51,25 +52,26 @@ public class TaskService {
     }
 
     public TaskDTO findById(Long id) {
-        Task task = taskRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + id));
-        return taskMapper.toDto(task);
+        return taskMapper.toDto(getTaskById(id));
     }
 
     public TaskDTO save(TaskDTO dto) {
-        Task task = taskMapper.toEntity(dto);
-        Task savedTask = taskRepository.save(task);
+        Task savedTask = taskRepository.save(taskMapper.toEntity(dto));
         return taskMapper.toDto(savedTask);
     }
 
     public TaskDTO update(TaskDTO dto) {
-        Task existingTask = taskRepository.findById(dto.getId()).orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + dto.getId()));
-        existingTask = taskMapper.toEntity(dto);
-        Task updatedTask = taskRepository.save(existingTask);
-        return taskMapper.toDto(updatedTask);
+        getTaskById(dto.getId());
+        Task task = taskMapper.toEntity(dto);
+        return taskMapper.toDto(taskRepository.save(task));
     }
 
     public void deleteById(Long id) {
-        taskRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + id));
+        getTaskById(id);
         taskRepository.deleteById(id);
+    }
+
+    private Task getTaskById(Long id) {
+        return taskRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Task not found with id: " + id));
     }
 }

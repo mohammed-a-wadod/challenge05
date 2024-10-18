@@ -1,4 +1,4 @@
-package com.banquemisr.taskmanagement.exception;
+package com.banquemisr.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException(String message) {

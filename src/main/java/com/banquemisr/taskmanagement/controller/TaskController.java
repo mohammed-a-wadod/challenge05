@@ -1,6 +1,7 @@
 
 package com.banquemisr.taskmanagement.controller;
 
+import com.banquemisr.security.models.enums.RoleEnum;
 import com.banquemisr.taskmanagement.models.dtos.PageDTO;
 import com.banquemisr.taskmanagement.models.dtos.TaskDTO;
 import com.banquemisr.taskmanagement.models.dtos.TaskSearchDTO;
@@ -8,6 +9,7 @@ import com.banquemisr.taskmanagement.services.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,10 +28,9 @@ public class TaskController {
 
     private final TaskService taskService;
 
-    @GetMapping
+    @GetMapping("/admin/all-tasks")
     public ResponseEntity<List<TaskDTO>> getAllTasks() {
-        List<TaskDTO> tasks = taskService.findAll();
-        return new ResponseEntity<>(tasks, HttpStatus.OK);
+        return new ResponseEntity<>(taskService.findAll(), HttpStatus.OK);
     }
 
     @PostMapping("/search")
@@ -39,20 +40,17 @@ public class TaskController {
 
     @GetMapping("/{id}")
     public ResponseEntity<TaskDTO> getTaskById(@PathVariable Long id) {
-        TaskDTO task = taskService.findById(id);
-        return new ResponseEntity<>(task, HttpStatus.OK);
+        return new ResponseEntity<>(taskService.findById(id), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<TaskDTO> createTask(@RequestBody TaskDTO taskDTO) {
-        TaskDTO savedTask = taskService.save(taskDTO);
-        return new ResponseEntity<>(savedTask, HttpStatus.CREATED);
+        return new ResponseEntity<>(taskService.save(taskDTO), HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity<TaskDTO> updateTask(@RequestBody TaskDTO taskDTO) {
-        TaskDTO updatedTask = taskService.update(taskDTO);
-        return new ResponseEntity<>(updatedTask, HttpStatus.OK);
+        return new ResponseEntity<>(taskService.update(taskDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
