@@ -1,6 +1,5 @@
 package com.banquemisr.taskmanagement.repository;
 
-import com.banquemisr.taskmanagement.models.dtos.TaskSearchDTO;
 import com.banquemisr.taskmanagement.models.entites.Task;
 import com.banquemisr.taskmanagement.models.enums.TaskPriorityEnum;
 import com.banquemisr.taskmanagement.models.enums.TaskStatusEnum;

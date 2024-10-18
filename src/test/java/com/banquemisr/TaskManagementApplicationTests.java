@@ -1,4 +1,4 @@
-package com.banquemisr.taskmanagement;
+package com.banquemisr;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

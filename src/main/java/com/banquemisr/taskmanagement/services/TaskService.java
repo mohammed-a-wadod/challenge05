@@ -7,7 +7,7 @@ import com.banquemisr.taskmanagement.models.dtos.TaskDTO;
 import com.banquemisr.taskmanagement.models.dtos.TaskSearchDTO;
 import com.banquemisr.taskmanagement.models.entites.Task;
 import com.banquemisr.taskmanagement.repository.TaskRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -20,13 +20,11 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class TaskService {
 
-    @Autowired
-    private TaskRepository taskRepository;
-
-    @Autowired
-    private TaskMapper taskMapper;
+    private final TaskRepository taskRepository;
+    private final TaskMapper taskMapper;
 
     public List<TaskDTO> findAll() {
         return taskRepository.findAll().stream().map(taskMapper::toDto).collect(Collectors.toList());
