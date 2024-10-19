@@ -67,12 +67,20 @@ The Task Management System backend is a standalone application designed to handl
 
 ### Task Management
 
-- **Get all tasks**: `GET /api/tasks`
+- **Get all tasks for admin only**: `GET /api/tasks/admin/all-tasks`
+- **Search task by search criteria**: `POST /api/tasks/search`
+- **Get a task by id**: `GET /api/tasks/{id}`
 - **Create a task**: `POST /api/tasks`
 - **Update a task**: `PUT /api/tasks/{id}`
 - **Delete a task**: `DELETE /api/tasks/{id}`
 
+There is postman collection file which conatians all the APIs
+
 ## Security
+
+There is predefinded users that can be used for testing:
+1. username: admin - passoword: 12345
+2. username: user - passoword: 12345
 
 All task-related endpoints require a valid JWT token in the `Authorization` header:
 ```
