@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -44,12 +45,12 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<TaskDTO> createTask(@RequestBody TaskDTO taskDTO) {
+    public ResponseEntity<TaskDTO> createTask(@Valid @RequestBody TaskDTO taskDTO) {
         return new ResponseEntity<>(taskService.save(taskDTO), HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<TaskDTO> updateTask(@RequestBody TaskDTO taskDTO) {
+    public ResponseEntity<TaskDTO> updateTask(@Valid @RequestBody TaskDTO taskDTO) {
         return new ResponseEntity<>(taskService.update(taskDTO), HttpStatus.OK);
     }
 

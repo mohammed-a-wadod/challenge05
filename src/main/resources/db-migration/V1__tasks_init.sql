@@ -3,10 +3,10 @@ create table tasks
     id          bigserial
         primary key,
     description varchar(255),
-    due_date    date,
-    priority    varchar(255),
-    status      varchar(255),
-    title       varchar(255)
+    due_date    date         not null,
+    priority    varchar(255) not null,
+    status      varchar(255) not null,
+    title       varchar(255) not null
 );
 
 
