@@ -42,3 +42,10 @@ replay_pid*
 /target/classes/db-migration/V2__users_init.sql
 /target/surefire-reports/com.banquemisr.TaskManagementApplicationTests.txt
 /target/surefire-reports/TEST-com.banquemisr.TaskManagementApplicationTests.xml
+*.original
+*.meta
+*.xml
+src/.DS_Store
+src/main/.DS_Store
+src/main/java/.DS_Store
+.DS_Store
