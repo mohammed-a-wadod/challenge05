@@ -40,9 +40,9 @@ The Task Management System backend is a standalone application designed to handl
 2. **Update database configurations**:
    Open `src/main/resources/application.properties` and update the PostgreSQL configurations:
    ```properties
-   spring.datasource.url=jdbc:postgresql://localhost:5432/task_db
-   spring.datasource.username=your_username
-   spring.datasource.password=your_password
+   spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+   spring.datasource.username=postgres
+   spring.datasource.password=postgres
    ```
 
 3. **Build and run the application**:
