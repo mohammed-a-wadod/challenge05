@@ -87,7 +87,7 @@ All task-related endpoints require a valid JWT token in the `Authorization` head
 Authorization: Bearer <your-token>
 ```
 
-## Running with Docker
+## Running the app
 
 Run task management service by one of the following
 
