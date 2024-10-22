@@ -11,7 +11,7 @@ import java.util.Date;
 public class JwtUtil {
 
     private String secret = "banquemisr_taskmanagement";
-    private int jwtExpirationInMs = 3600000;
+    private final int jwtExpirationInMs = 180000; // 3 minutes
 
     public String generateToken(String username) {
         return Jwts.builder()
