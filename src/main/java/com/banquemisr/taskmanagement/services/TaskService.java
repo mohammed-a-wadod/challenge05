@@ -14,9 +14,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -40,8 +40,8 @@ public class TaskService {
                 dto.getDescription(),
                 dto.getStatus(),
                 dto.getPriority(),
-                dto.getFromDueDate(),
-                dto.getToDueDate(),
+                dto.getFromDueDate().atStartOfDay(),
+                dto.getToDueDate().atTime(LocalTime.MAX),
                 pageable);
 
         return new PageDTO(

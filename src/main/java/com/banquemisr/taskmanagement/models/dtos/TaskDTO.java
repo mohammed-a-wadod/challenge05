@@ -25,4 +25,7 @@ public class TaskDTO {
     private LocalDate dueDate;
 
     private String description;
+
+    @NotNull(message = "User task mail must have value")
+    private String userTaskMail;
 }

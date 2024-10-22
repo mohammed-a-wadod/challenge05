@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -39,5 +39,8 @@ public class Task implements Serializable {
     private TaskPriorityEnum priority;
 
     @Column(name = "DUE_DATE")
-    private LocalDate dueDate;
+    private LocalDateTime dueDate;
+
+    @Column(name = "user_task_mail")
+    private String userTaskMail;
 }
