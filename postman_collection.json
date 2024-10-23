@@ -198,7 +198,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": " {\n        \"id\": 1,\n        \"title\": \"task1\",\n        \"description\": \"task1-updated\",\n        \"status\": \"IN_PROGRESS\",\n        \"priority\": \"LOW\",\n        \"dueDate\": \"2024-10-18\"\n    }",
+							"raw": " {\n        \"id\": 1,\n        \"title\": \"task1\",\n        \"description\": \"task1-updated\",\n        \"status\": \"IN_PROGRESS\",\n        \"priority\": \"LOW\",\n        \"dueDate\": \"2024-10-18\",\n        \"userTaskMail\": \"m@gm.com\"\n    }",
 							"options": {
 								"raw": {
 									"language": "json"

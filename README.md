@@ -39,25 +39,28 @@ The Task Management System backend is a standalone application designed to handl
    ```
 
 2. **Update database configurations**:
-   Open `src/main/resources/application.properties` and update the PostgreSQL configurations:
+   Add valid Database url, database username, and database password in the environment variable:
    ```properties
-   spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
-   spring.datasource.username=postgres
-   spring.datasource.password=postgres
+   spring.datasource.url=${DB_URL}
+   spring.datasource.username=${DB_USER}
+   spring.datasource.password=${DB_PASSWORD}
    ```
+3. **Update email configurations**: Add valid email and password in application.properties, take into consideration the following:
+- turn of the second factor auth.
+- make the account less secure to enable the demo to send email to your clinet.
 
-3. **Build and run the application**:
+4. **Build and run the application**:
    Run the following commands to build and run the app:
    ```bash
-   mvn clean install
+   mvn clean install -DskipTests
    mvn spring-boot:run
    ```
 
-4. **Access the API documentation**:
+5. **Access the API documentation**:
    Once the application is running, you can access the Swagger UI at:
    ```
    http://localhost:8080/swagger-ui.html
-   ```
+   ``` 
 
 ## API Endpoints
 
@@ -94,6 +97,10 @@ Run task management service by one of the following
 1. Running Task Management service as standalone application:
    ```bash
    java -jar task-management-service.jar
+   ```
+   or us this command
+   ```bash
+   mvn spring-boot:run
    ```
    
 2. Build the Docker image and run the Docker container:
