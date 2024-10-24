@@ -12,4 +12,4 @@ FROM openjdk:11-jdk-slim
 WORKDIR /app
 COPY --from=build /app/target/challenge05.jar challenge05.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "task-management-service.jar"]
+ENTRYPOINT ["java", "-jar", "challenge05.jar"]

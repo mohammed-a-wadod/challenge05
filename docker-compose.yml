@@ -27,7 +27,11 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/postgres
+      - DB_URL=${DB_URL}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - USER_EMAIL=${USER_EMAIL}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
     networks:
       - task-management-network
 

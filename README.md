@@ -94,22 +94,20 @@ Authorization: Bearer <your-token>
 
 Run task management service by one of the following
 
-1. Running Task Management service as standalone application:
+1. Running Task Management service as standalone application and add environment variables:
    ```bash
-   java -jar task-management-service.jar
+   mvn spring-boot:run -Dspring-boot.run.arguments="--DB_URL=dbURl --DB_USER=dbUsername --DB_PASSWORD=dbPassword --USER_EMAIL=mail --EMAIL_PASSWORD=mailPassword"
    ```
-   or us this command
+2. Using docker-compose:
+   - create file with name .env add this environment variables keys and assign values to it:
    ```bash
-   mvn spring-boot:run
+   DB_URL= 
+   DB_USER= 
+   DB_PASSWORD= 
+   USER_EMAIL= 
+   EMAIL_PASSWORD=
    ```
-   
-2. Build the Docker image and run the Docker container:
-   ```bash
-   docker build -t task-management-service -f task-management-service.dockerfile .
-   docker run -p 8080:8080 task-management-service
-   ```
-
-3. Using docker-compose:
+   - run this command
    ```bash
    docker-compose up --build -d --remove-orphans
    ```
