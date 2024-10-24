@@ -10,6 +10,6 @@ RUN mvn clean package -DskipTests
 # Run stage
 FROM openjdk:11-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/task-management-service.jar task-management-service.jar
+COPY --from=build /app/target/challenge05.jar challenge05.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "task-management-service.jar"]

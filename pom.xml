@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.banquemisr</groupId>
-    <artifactId>task-management</artifactId>
+    <groupId>banquemisr.challenge05</groupId>
+    <artifactId>challenge05</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>task-management</name>
+    <name>challenge05</name>
 
     <properties>
         <java.version>11</java.version>
@@ -145,7 +145,7 @@
     </dependencies>
 
     <build>
-        <finalName>task-management-service</finalName>
+        <finalName>challenge05</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
