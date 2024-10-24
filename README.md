@@ -34,7 +34,7 @@ The Task Management System backend is a standalone application designed to handl
 
 1. **Clone the repository**:
    ```bash
-   git git@github.com:mohammed-a-wadod/challenge05.git
+   git clone https://github.com/mohammed-a-wadod/challenge05.git
    cd task-management
    ```
 
