@@ -53,7 +53,6 @@ The Task Management System backend is a standalone application designed to handl
    Run the following commands to build and run the app:
    ```bash
    mvn clean install -DskipTests
-   mvn spring-boot:run
    ```
 
 5. **Access the API documentation**:
